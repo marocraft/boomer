@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import ma.craft.boomer.exception.DataNotFoundException;
 import ma.craft.boomer.model.Book;
-import ma.craft.boomer.repository.Repository;
+import ma.craft.boomer.repository.BookRepository;
 
 @Service
-public class MessageServiceImp implements MessageService{
+public class BookServiceImp implements BookService{
 	
 	
 //	private Map<Integer,Message> messages = DatabaseClass.getMessages();
@@ -27,13 +27,13 @@ public class MessageServiceImp implements MessageService{
 	}
 
 */
-	private Repository repository;
+	private BookRepository repository;
 
 	@Autowired
-	public MessageServiceImp(Repository repository) {
+	public BookServiceImp(BookRepository repository) {
 		this.repository = repository;
 	}
-	public MessageServiceImp() {
+	public BookServiceImp() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
