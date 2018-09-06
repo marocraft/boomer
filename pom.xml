@@ -6,6 +6,7 @@
 	<groupId>ma.marocraft.boomer</groupId>
 	<artifactId>boomer-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<modules>
 		<module>Book</module>
