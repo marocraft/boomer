@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ma.craft.boomer.exception.DataNotFoundException;
 import ma.craft.boomer.model.Book;
-import ma.craft.boomer.service.MessageService;
+import ma.craft.boomer.service.BookService;
 
 
 @RestController
-public class Service1 {
+public class BookController {
 	
 	@Autowired
-	private MessageService messageservice;
+	private BookService BookService;
 
 	//404 not found
 	@GetMapping(value="/message")
@@ -35,7 +35,7 @@ public class Service1 {
 	public int Method2(@PathVariable("id") int id)
 	{
 		try {
-			messageservice.getMessage(id);
+			BookService.getMessage(id);
 		} catch (DataNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,7 +48,7 @@ public class Service1 {
 	 *********************************/
 	@RequestMapping(value = "/AllBooks", method = RequestMethod.GET)
 	public ResponseEntity<List<Book>> listAllStudents() {
-		List<Book> messages = messageservice.findAllMessages();
+		List<Book> messages = BookService.findAllMessages();
 		if (messages.isEmpty()) {
 			return new ResponseEntity<List<Book>>(HttpStatus.NO_CONTENT);
 		}
@@ -62,7 +62,7 @@ public class Service1 {
 	@RequestMapping(value="/Book/{id}" , method=RequestMethod.GET )
 	public Book getMessage(@PathVariable("id") int id) throws DataNotFoundException
 	{
-		return messageservice.findById(id);
+		return BookService.findById(id);
 		 //return messageservice.getMessage(id);
 		// return new ResponseEntity<>("success " , HttpStatus.OK );
 	}
@@ -76,11 +76,11 @@ public class Service1 {
 	@RequestMapping(value = "/Book", method = RequestMethod.POST)
 	public ResponseEntity<Book> Add(@RequestBody Book book) {
 
-		if (messageservice.isBookExist(book)) {
+		if (BookService.isBookExist(book)) {
 			return new ResponseEntity<Book>(HttpStatus.CONFLICT);
 		}
 
-		 messageservice.Add(book);
+		BookService.Add(book);
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
 
@@ -91,12 +91,12 @@ public class Service1 {
 	@RequestMapping(value = "/Book/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Book> deleteClasss(@PathVariable("id") int id) {
 
-		Book book = messageservice.findById(id);
+		Book book = BookService.findById(id);
 		if (book == null) {
 			return new ResponseEntity<Book>(HttpStatus.NOT_FOUND);
 		}
 
-		messageservice.deleteBookById(id);
+		BookService.deleteBookById(id);
 		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 	}
 	

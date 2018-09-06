@@ -5,7 +5,7 @@ import java.util.List;
 import ma.craft.boomer.exception.DataNotFoundException;
 import ma.craft.boomer.model.Book;
 
-public interface MessageService {
+public interface BookService {
 	public List<Book> findAllMessages();
 
 	public Book getMessage(int id) throws DataNotFoundException;

@@ -21,5 +21,6 @@ public class Book {
 	private String bookLibelle;
 	private String bookDescription;
 	private String autor;
+	private int quantite;
 
 }
