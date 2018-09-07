@@ -1,0 +1,1 @@
+#IntroductionThe purpose of this API is to manage a book , so the customer must be able to add a book with different information, should also do a global search to find all the books , and to find the books by specifing just a the book's name or an autor's name

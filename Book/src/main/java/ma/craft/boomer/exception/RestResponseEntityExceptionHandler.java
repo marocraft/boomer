@@ -8,9 +8,17 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler  extends ResponseEntityExceptionHandler {
  
+    /**
+     * Handle conflict.
+     *
+     * @param ex the ex
+     * @param request the request
+     * @return the response entity
+     */
     @ExceptionHandler(value = { DataNotFoundException.class})
     protected ResponseEntity<Object> handleConflict(
     		DataNotFoundException ex, WebRequest request) {
