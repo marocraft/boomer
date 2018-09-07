@@ -21,7 +21,7 @@ public class BookServiceTest {
 	public void addShouldSaveBook() {
 		Book book = new Book("test","dd","dd",10,100.10,10L);
 		
-		bookService.Add(book);
+		bookService.add(book);
 		
 		Book dbBook = bookRepository.findAll().get(0);
 		
