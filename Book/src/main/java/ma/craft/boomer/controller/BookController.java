@@ -1,108 +1,115 @@
 package ma.craft.boomer.controller;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import ma.craft.boomer.Main;
 import ma.craft.boomer.exception.DataNotFoundException;
 import ma.craft.boomer.model.Book;
 import ma.craft.boomer.service.BookService;
 
 
-@RestController
-public class BookController {
-	
-	@Autowired
-	private BookService BookService;
 
-	//404 not found
-	@GetMapping(value="/message")
-	public String HelloWord() {
-		return "hello soukaina !!! ";
-	}
-	
-	//400 bad request
-	@GetMapping(value="/message/{id}")
-	public int Method2(@PathVariable("id") int id)
-	{
-		try {
-			BookService.getMessage(id);
-		} catch (DataNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return id;
-	}
-	/******************************
+@RestController
+@CrossOrigin(origins="http://localhost:4200" , allowedHeaders="*")
+public class BookController {
+	private static final Logger logger = Logger.getLogger(BookController.class);
+
+	/** The Book service. */
+	@Autowired
+	private BookService bookService;
+
+	/**
 	 * All Books
 	 * 
-	 *********************************/
-	@RequestMapping(value = "/AllBooks", method = RequestMethod.GET)
+	 * @return the response entity shown all books
+	 */
+	@RequestMapping(value = "/books", method = RequestMethod.GET)
 	public ResponseEntity<List<Book>> listAllStudents() {
-		List<Book> messages = BookService.findAllMessages();
+		List<Book> messages = bookService.findAllBooks();
 		if (messages.isEmpty()) {
+			logger.error("Controller :not enough books");
 			return new ResponseEntity<List<Book>>(HttpStatus.NO_CONTENT);
 		}
+		logger.info("Controller : Show all Books");
 		return new ResponseEntity<List<Book>>(messages, HttpStatus.OK);
 	}
-
-	/******************************
+	/**
 	 * Get Book
-	 * 
-	 *********************************/
-	@RequestMapping(value="/Book/{id}" , method=RequestMethod.GET )
-	public Book getMessage(@PathVariable("id") int id) throws DataNotFoundException
-	{
-		return BookService.findById(id);
-		 //return messageservice.getMessage(id);
-		// return new ResponseEntity<>("success " , HttpStatus.OK );
+	 * @param id 
+	 * @return the book
+	 * @throws DataNotFoundException the data not found exception
+	 * return just a book with an ID
+	 */
+	@GetMapping(value="/book/{id}"  )
+	public Book getBook(@PathVariable("id") Long id) throws DataNotFoundException
+	{ 
+		if(bookService.isBookExist(bookService.findById(id))) {
+			logger.error("Controller : book not found");
+		}
+		logger.info("Controller : getting a book");
+		return bookService.findById(id);
+	}
+	/**
+	 * Add Book.
+	 *
+	 * @param book the book
+	 * @return the response entity for add a book
+	 */
+	@PostMapping(value = "/book")
+	public void add(@RequestBody Book book) {
+		// when i add a book , in the first time , it is on
+		book.setActif(true);
+		
+		bookService.add(book);
+		logger.info("Controller : adding a book");
 	}
 	
+	@GetMapping(value="/bloquer/{id}" )
+	public String updateActif(@PathVariable("id") Long id) 
+	{    
+		logger.info("Controller : Blooking a book");
+
+		 bookService.updateBook(false,id);
+		 return "ok";
+	}
+
 	
 	/**
-	 * Add Book
-	 * @param book
-	 * @return
+	 * get Book by libelle
 	 */
-	@RequestMapping(value = "/Book", method = RequestMethod.POST)
-	public ResponseEntity<Book> Add(@RequestBody Book book) {
-
-		if (BookService.isBookExist(book)) {
-			return new ResponseEntity<Book>(HttpStatus.CONFLICT);
+	public Book getBookByLibelle(String libelle) {
+		
+		if(bookService.findBookByLibelle(libelle) != null) {
+			logger.info("Controller : finding a book with the libelle  : "+libelle);
+			return bookService.findBookByLibelle(libelle);
 		}
-
-		BookService.Add(book);
-		return new ResponseEntity<Book>(book, HttpStatus.OK);
+		return null;
 	}
-
-	
-	/******************************
-	 * Delete Book
-	 *********************************/
-	@RequestMapping(value = "/Book/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Book> deleteClasss(@PathVariable("id") int id) {
-
-		Book book = BookService.findById(id);
-		if (book == null) {
-			return new ResponseEntity<Book>(HttpStatus.NOT_FOUND);
+	/**
+	 * get Book by AUtor
+	 */
+	public Book getBookByAutor(String autor) {
+		
+		if(bookService.findBookByAutor(autor) != null) {
+			logger.info("Controller : finding a book with the autor is : "+autor);
+			return bookService.findBookByAutor(autor);
 		}
-
-		BookService.deleteBookById(id);
-		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
+		return null;
 	}
 	
 	
-	@GetMapping(value="/exception")
-	public String exception() throws FileNotFoundException{
-		throw new FileNotFoundException("ngfhfhgfgh");
-	}
 }

@@ -1,3 +1,4 @@
-INSERT INTO book (book_id,book_libelle,autor,book_description,quantite) VALUES (1,'Antigone' , 'jolie', 'Jean Anouil',12);
-INSERT INTO book  (book_id,book_libelle,autor,book_description,quantite)  VALUES (2,'Le dernier jour dun condamné' , 'prison', 'Victor Hugo',11);
-INSERT INTO book  (book_id,book_libelle,autor,book_description,quantite)   VALUES (3,'La boite à merveille' , 'la vie au maroc', 'Ahmed Sefrioui',19);
+--INSERT INTO book (book_id,book_libelle,autor,book_description,quantite,prix,actif) VALUES (1,'Antigone' ,  'Jean Anouil','jolie',12,10.12,true);
+--INSERT INTO book  (book_id,book_libelle,autor,book_description,quantite,prix,actif)  VALUES (2,'Le dernier jour dun condamné' ,'Victor Hugo', 'prison',11,109.10,true);
+--INSERT INTO book  (book_id,book_libelle,autor,book_description,quantite,prix,actif)   VALUES (3,'La boite à merveille', 'Ahmed Sefrioui' , 'la vie au maroc',19,90.10,true);
+commit;
