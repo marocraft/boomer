@@ -31,26 +31,60 @@ public class Book {
 	private int quantite;
 	
 	private double prix;
-	
-	/**
-	 * Instantiates a new book.
-	 *
-	 * @param bookLibelle the book libelle
-	 * @param bookDescription the book description
-	 * @param autor the autor
-	 * @param quantite the quantite
-	 */
-	public Book(String bookLibelle, String bookDescription, String autor, int quantite,double prix,Long id) {
-		this.bookId=id;
+
+	private Book(String bookLibelle,
+			 String bookDescription,
+			 String autor,
+			 int quantite,
+			 double prix){
 		this.bookLibelle = bookLibelle;
-		this.bookDescription = bookDescription;
 		this.autor = autor;
 		this.quantite = quantite;
-		this.prix=prix;
+		this.prix = prix;
+		this.bookDescription = bookDescription;
 	}
 
-//	public boolean equals(Object o) {
-//		return false;
-//	}
-	
+	public static class BookBuilder {
+		private String bookLibelle;
+		private String bookDescription;
+		private String autor;
+		private int quantite;
+		private double prix;
+
+		private BookBuilder(){}
+
+		public static BookBuilder create(){
+			return new BookBuilder();
+		}
+
+		public BookBuilder libelle(String libelle){
+			this.bookLibelle = libelle;
+			return this;
+		}
+
+		public BookBuilder quantite(int quantite){
+			this.quantite = quantite;
+			return this;
+		}
+
+		public BookBuilder autor(String autor){
+			this.autor = autor;
+			return this;
+		}
+
+		public BookBuilder prix(double prix){
+			this.prix = prix;
+			return this;
+		}
+
+		public BookBuilder description(String bookDescription){
+			this.bookDescription = bookDescription;
+			return this;
+		}
+
+		public Book build(){
+			return new Book( bookLibelle, bookDescription, autor, quantite, prix);
+		}
+	}
+
 }
