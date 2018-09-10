@@ -12,6 +12,10 @@ import ma.craft.boomer.model.Book;
 
 
 @Repository
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface BookRepository.
+ */
 public interface BookRepository extends JpaRepository<Book, Long> {
 	
 	/**

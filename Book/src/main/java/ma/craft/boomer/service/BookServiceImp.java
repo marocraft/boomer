@@ -2,11 +2,6 @@ package ma.craft.boomer.service;
 
 import java.util.List;
 
-import javax.persistence.Query;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +9,10 @@ import ma.craft.boomer.exception.DataNotFoundException;
 import ma.craft.boomer.model.Book;
 import ma.craft.boomer.repository.BookRepository;
 
-
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BookServiceImp.
+ */
 @Service
 public class BookServiceImp implements BookService {
 	

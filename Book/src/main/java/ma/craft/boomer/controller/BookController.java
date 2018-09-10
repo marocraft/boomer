@@ -10,13 +10,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ma.craft.boomer.Main;
 import ma.craft.boomer.exception.DataNotFoundException;
 import ma.craft.boomer.model.Book;
 import ma.craft.boomer.service.BookService;
@@ -87,7 +85,6 @@ public class BookController {
 		 return "ok";
 	}
 
-	
 	/**
 	 * get Book by libelle
 	 */
