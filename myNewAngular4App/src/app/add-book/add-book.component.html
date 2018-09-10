@@ -1,0 +1,20 @@
+
+
+
+         <div class="containers">  
+            <form id="contact" #f = "ngForm" (ngSubmit) = "onClickSubmit(f.value)">
+              <h3>Welcome to Book Store</h3>
+             
+                  <input  type="text" placeholder="Libelle" name = "bookLibelle" ngModel required>
+
+                  <input  type="text" placeholder="Autor"  name = "autor" ngModel required>
+              
+                  <input  type="text" placeholder="Quantite"  name = "quantite" ngModel required>
+             
+                  <input  type="text"  placeholder="Description" name = "bookDescription" ngModel required>
+                  <input  type="text"  placeholder="Price" name = "prix" ngModel required>
+
+              
+              <input class="btn btn-primary" style="height: 35px; width: 100px; position: center;"  type = "submit" value = " Add book ">
+            </form>
+          </div>
