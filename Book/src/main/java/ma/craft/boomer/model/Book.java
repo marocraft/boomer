@@ -1,5 +1,7 @@
 package ma.craft.boomer.model;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,33 +19,23 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long bookId;
-	
+
 	private String bookLibelle;
-	
+
 	private String bookDescription;
-	
+
 	private String autor;
-	
+
 	private int quantite;
 	
 	private double prix;
-
-	private Book(String bookLibelle,
-			 String bookDescription,
-			 String autor,
-			 int quantite,
-			 double prix){
-		this.bookLibelle = bookLibelle;
-		this.autor = autor;
-		this.quantite = quantite;
-		this.prix = prix;
-		this.bookDescription = bookDescription;
-	}
-
+	private boolean actif;
+	
+	
 	public static class BookBuilder {
 		private String bookLibelle;
 		private String bookDescription;
@@ -83,8 +75,41 @@ public class Book {
 		}
 
 		public Book build(){
-			return new Book( bookLibelle, bookDescription, autor, quantite, prix);
+			return new Book( bookLibelle, bookDescription, autor, quantite, prix, false);
 		}
 	}
 
+	/**
+	 * Instantiates a new book.
+	 *
+	 * @param bookLibelle
+	 *            the book libelle
+	 * @param bookDescription
+	 *            the book description
+	 * @param autor
+	 *            the autor
+	 * @param quantite
+	 *            the quantite
+	 */
+	private Book(String bookLibelle, String bookDescription, String autor, int quantite, double prix,
+			boolean actif) {
+		this.bookLibelle = bookLibelle;
+		this.bookDescription = bookDescription;
+		this.autor = autor;
+		this.quantite = quantite;
+		this.prix = prix;
+		this.actif = actif;
+	}
+
+	public boolean equals(Object o) {
+		if(o instanceof Book) {
+			Book book = (Book) o;
+			return Objects.equals(bookLibelle, book.bookLibelle);
+		}
+		return false;
+		
+	}
+	public int hashCode() {
+		return Objects.hash(bookLibelle);
+	}
 }

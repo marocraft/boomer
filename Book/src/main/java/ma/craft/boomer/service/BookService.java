@@ -12,7 +12,7 @@ public interface BookService {
 	 *
 	 * @return the list
 	 */
-	public List<Book> findAllMessages();
+	public List<Book> findAllBooks();
 
 	/**
 	 * Gets the message.
@@ -44,7 +44,7 @@ public interface BookService {
 	 * @param id the id
 	 * @return the book
 	 */
-	public Book findById(int id);
+	public Book findById(Long id);
 	
 	/**
 	 * Find book by libelle.
@@ -52,7 +52,8 @@ public interface BookService {
 	 * @param Libelle the libelle
 	 * @return the book
 	 */
-	public Book findBookByLibelle(String Libelle);
+	public void updateBook(Boolean actif, Long userId);	
+	public Book findBookByLibelle(String libelle);
 	
 	/**
 	 * Find book by autor.

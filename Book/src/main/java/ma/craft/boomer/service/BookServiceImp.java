@@ -3,7 +3,6 @@ package ma.craft.boomer.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 import ma.craft.boomer.exception.DataNotFoundException;
@@ -40,9 +39,9 @@ public class BookServiceImp implements BookService {
 	}
 	
 	/* (non-Javadoc)
-	 * @see ma.craft.boomer.service.BookService#findAllMessages()
+	 * @see ma.craft.boomer.service.BookService#findAllBooks()
 	 */
-	public List<Book> findAllMessages() {
+	public List<Book> findAllBooks() {
 		return repository.findAll();
 	}
 	
@@ -68,7 +67,7 @@ public class BookServiceImp implements BookService {
 	/* (non-Javadoc)
 	 * @see ma.craft.boomer.service.BookService#findById(int)
 	 */
-	public Book findById(int id) {
+	public Book findById(Long id) {
 		return repository.findByBookId(id);
 	}
 	
@@ -84,5 +83,9 @@ public class BookServiceImp implements BookService {
 	
 	public Book findBookByAutor(String autor) {
 		return repository.findByAutor(autor);
+	}
+	public void updateBook(Boolean actif, Long userId) {
+		 repository.updateBook(actif, userId);
+		
 	}
 }
