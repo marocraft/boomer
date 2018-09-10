@@ -32,4 +32,11 @@ mvnw.cmd
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /.metadata/
+<<<<<<< HEAD
 /.recommenders/
+=======
+
+# Intellij
+*.iml
+.idea/
+>>>>>>> 7298c459af4d20b3d55477b6a98880cce03dc79d
