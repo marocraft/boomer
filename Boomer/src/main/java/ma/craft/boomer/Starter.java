@@ -13,12 +13,10 @@ public class Starter {
 
 	@Around(value = "@annotation(Boomer)")
 	public <T> T boomer(final ProceedingJoinPoint proceedingJoinPoint, Boomer bommer) throws Throwable {
-		
-		
 		CodeSignature signature = (CodeSignature) proceedingJoinPoint.getSignature();
-
 		MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();
-
 			T stu = (T) proceedingJoinPoint.proceed();// return method
 			return stu;
-	}}
+	}
+
+}
