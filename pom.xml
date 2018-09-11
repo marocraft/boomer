@@ -10,7 +10,7 @@
 
 	<modules>
 		<module>Book</module>
-		<module>store</module>
+		<module>ProjetTest</module>
 		<module>Eureka-server2-1</module>
 		<module>Zuul</module>
 		<module>Boomer</module>
