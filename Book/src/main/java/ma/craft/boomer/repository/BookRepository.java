@@ -30,7 +30,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	@Transactional
 	@Modifying
 	@Query(nativeQuery=true,value="update book b set b.actif = :actif  where b.book_id= :book_id")
-	void updateBook(@Param("actif") boolean actif,@Param("book_id") long book_id);	
+	void updateBook(@Param("actif") boolean actif,@Param("book_id") long bookId);	
 	/**
 	 * Find by book libelle.
 	 *

@@ -24,7 +24,7 @@ public class controllerress {
 	private TraitementMetier traitementMetier;
 
 	@GetMapping(value = "book/{id}")
-	public Book GetOneBook(@PathVariable Long id) {
+	public Book getOneBook(@PathVariable Long id) {
 		return traitementMetier.getBookById(id);
 	}
 
@@ -39,56 +39,56 @@ public class controllerress {
 	}
 
 	@GetMapping(value = "books")
-	public List<Book> AllBooks() {
+	public List<Book> allBooks() {
 		return traitementMetier.getAllBooks();
 	}
 
 	@GetMapping(value = "addbook/{libel}/{desc}/{autor}/{quant}")
-	public void AddBook(@PathVariable String libel, @PathVariable String desc, @PathVariable String autor,
+	public void addBook(@PathVariable String libel, @PathVariable String desc, @PathVariable String autor,
 			@PathVariable int quant) {
-		traitementMetier.AddBook(libel, desc, autor, quant);
+		traitementMetier.addBook(libel, desc, autor, quant);
 	}
 
 	// ***********************************************Promotion***************************
 	// get Promotion
 	@GetMapping(value = "promotion/{id}")
-	public PromotionB GetOnePromotion(@PathVariable Long id) {
+	public PromotionB getOnePromotion(@PathVariable Long id) {
 		return traitementMetier.getPromotionById(id);
 	}
 
 	// Add Promotion
 	@RequestMapping(value = "/promotion", method = RequestMethod.POST)
-	public void AddPromotion(@RequestBody PromotionB promotion) {
-		traitementMetier.AddPromotionDate(promotion);
+	public void addPromotion(@RequestBody PromotionB promotion) {
+		traitementMetier.addPromotionDate(promotion);
 	}
 
 	// Get All Promotions
 	@GetMapping(value = "listPromotion")
-	public List<PromotionB> AllPromotions() {
+	public List<PromotionB> allPromotions() {
 		return traitementMetier.getAllPromotion();
 	}
 
 	// get all promotion Valide
 	@GetMapping(value = "listPromotionValid")
-	public List<PromotionB> AllPromotionsValid() {
+	public List<PromotionB> allPromotionsValid() {
 		return traitementMetier.getAllPromotionValide();
 	}
 
 	// Add Promotion
 	@RequestMapping(value = "/validerpromotion", method = RequestMethod.PUT)
-	public void ValiderPromotion(@RequestBody PromotionB prom) {
-		traitementMetier.ValiderUnePromotion(prom);
+	public void validerPromotion(@RequestBody PromotionB prom) {
+		traitementMetier.validerUnePromotion(prom);
 	}
 
 	// Bloquer Toutes les promotions
 	@RequestMapping(value = "/BloquerToutespromotion", method = RequestMethod.PUT)
-	public void BloquerToutespromotion() {
-		traitementMetier.BloquerToutespromotion();
+	public void bloquerToutespromotion() {
+		traitementMetier.bloquerToutespromotion();
 	}
 
 	// Recherche des Books
 	@GetMapping(value = "books/{mc}/type")
-	public List<Book> ChercherBook(@PathVariable String mc, @PathVariable String type) {
+	public List<Book> chercherBook(@PathVariable String mc, @PathVariable String type) {
 		return traitementMetier.chercherBook(mc, type);
 	}
 

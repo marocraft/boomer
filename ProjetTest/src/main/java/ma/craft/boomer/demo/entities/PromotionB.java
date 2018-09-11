@@ -1,6 +1,5 @@
 package ma.craft.boomer.demo.entities;
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,7 +45,7 @@ public class PromotionB {
 	public void setPourcentage(int pourcentage) {
 		this.pourcentage = pourcentage;
 	}
-	public boolean GetValide() {
+	public boolean getValide() {
 		return valide;
 	}
 	public void setValide(boolean valide) {
@@ -67,12 +66,9 @@ public class PromotionB {
 		this.pourcentage = pourcentage;
 		this.valide = valide;
 	}
-	/**
-	 * 
-	 */
+	
 	public PromotionB() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 
