@@ -1,4 +1,4 @@
-package org.demo.com.entities;
+package ma.craft.boomer.demo.entities;
 
 import java.util.Date;
 

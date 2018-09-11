@@ -1,18 +1,18 @@
-package org.demo.com.Service;
+package ma.craft.boomer.demo.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.demo.com.entities.Book;
-import org.demo.com.entities.InterRepoPromotion;
-import org.demo.com.entities.InterReposetory;
-import org.demo.com.entities.PromotionB;
-import org.demo.com.entities.PromotionB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import ma.craft.boomer.demo.entities.Book;
+import ma.craft.boomer.demo.entities.InterRepoPromotion;
+import ma.craft.boomer.demo.entities.InterReposetory;
+import ma.craft.boomer.demo.entities.PromotionB;
 
 @Service
 public class TraitementMetier {

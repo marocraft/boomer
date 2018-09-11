@@ -22,7 +22,7 @@ import ma.craft.boomer.service.BookService;
 
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200" , allowedHeaders="*")
+@CrossOrigin(origins="*" , allowedHeaders="*")
 public class BookController {
 	private static final Logger logger = Logger.getLogger(BookController.class);
 
@@ -88,7 +88,8 @@ public class BookController {
 	/**
 	 * get Book by libelle
 	 */
-	public Book getBookByLibelle(String libelle) {
+	@GetMapping(value="/book/search/{libelle}" )
+	public Book getBookByLibelle(@PathVariable("libelle") String libelle) {
 		
 		if(bookService.findBookByLibelle(libelle) != null) {
 			logger.info("Controller : finding a book with the libelle  : "+libelle);
@@ -100,7 +101,6 @@ public class BookController {
 	 * get Book by AUtor
 	 */
 	public Book getBookByAutor(String autor) {
-		
 		if(bookService.findBookByAutor(autor) != null) {
 			logger.info("Controller : finding a book with the autor is : "+autor);
 			return bookService.findBookByAutor(autor);
