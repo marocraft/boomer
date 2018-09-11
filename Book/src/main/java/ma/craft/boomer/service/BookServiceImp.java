@@ -46,18 +46,6 @@ public class BookServiceImp implements BookService {
 	}
 	
 	/* (non-Javadoc)
-	 * @see ma.craft.boomer.service.BookService#getMessage(int)
-	 */
-	public Book getMessage(int id) throws DataNotFoundException{
-		   //  Message message= messages.get(id);
-			Book message= repository.findAll().get(id);
-		     if(message == null) {
-		    	 throw new DataNotFoundException("message with id ="+id+" not found");	
-		     }
-		     return message;
-		}
-	
-	/* (non-Javadoc)
 	 * @see ma.craft.boomer.service.BookService#Add(ma.craft.boomer.model.Book)
 	 */
 	public void add(Book book) {
@@ -74,10 +62,10 @@ public class BookServiceImp implements BookService {
 	/* (non-Javadoc)
 	 * @see ma.craft.boomer.service.BookService#isBookExist(ma.craft.boomer.model.Book)
 	 */
-	public boolean isBookExist(Book book) {
+	public boolean isBookExist(Book book) throws DataNotFoundException{
 		return repository.findByBookLibelle(book.getBookLibelle()) != null;
 	}
-	public Book findBookByLibelle(String Libelle) {
+	public Book findBookByLibelle(String Libelle) throws DataNotFoundException{
 		return repository.findByBookLibelle(Libelle);
 	}
 	

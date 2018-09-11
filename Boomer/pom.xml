@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -10,7 +11,23 @@
 
 	<name>Boomer Annotations</name>
 	<description>Demo project for Spring Boot </description>
-
+	<developers>
+		<developer>
+			<id>nb</id>
+			<email>nbenaffoune@gmail.com</email>
+			<name>Nourelhouda benaffoune</name>
+		</developer>
+		<developer>
+			<id>zj</id>
+			<email>jawadi.zouhair.2017@gmail.com</email>
+			<name>Zouhair Jawadi</name>
+		</developer>
+		<developer>
+			<id>se</id>
+			<email>soukaynaetalbi@gmail.com</email>
+			<name>Soukayna Etalbi</name>
+		</developer>
+	</developers>
 	<parent>
 		<groupId>ma.marocraft.boomer</groupId>
 		<artifactId>boomer-parent</artifactId>

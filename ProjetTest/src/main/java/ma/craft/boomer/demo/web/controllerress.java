@@ -32,8 +32,9 @@ public class controllerress {
 	private RemoteCallService remotecallservice;
 
 	/************* Get Students from the others Service ****************/
-	@GetMapping("/book/search/{libelle}")
-	public Object getEmployee(@PathVariable("libelle") String libelle) {
+	@GetMapping("book/search/{libelle}") 
+	public Object getEmployee(@PathVariable("libelle") String libelle) 
+	{
 		return remotecallservice.getData(libelle);
 	}
 

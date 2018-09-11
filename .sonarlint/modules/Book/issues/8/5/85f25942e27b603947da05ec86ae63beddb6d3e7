@@ -1,0 +1,9 @@
+
+xsquid:CommentedOutCodeLine4"<This block of commented-out lines of code should be removed.(²Õ­ŒHšRMAJORZ
+CODE_SMELL
+^squid:S1135"2Complete the task associated to this TODO comment.(¹ÒÁþH›RINFOZ
+CODE_SMELL
+csquid:S1135&"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿHœRINFOZ
+CODE_SMELL
+squid:S00117P"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ÓìHRMINORZ
+CODE_SMELL
