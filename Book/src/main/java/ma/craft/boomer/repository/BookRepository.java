@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import ma.craft.boomer.exception.DataNotFoundException;
 import ma.craft.boomer.model.Book;
 
 
@@ -36,7 +37,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	 * @param name the name
 	 * @return the book
 	 */
-	public Book findByBookLibelle(String name);
+	public Book findByBookLibelle(String name) throws DataNotFoundException;
 
 	/**
 	 * Find by autor.

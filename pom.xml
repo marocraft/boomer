@@ -10,12 +10,29 @@
 
 	<modules>
 		<module>Book</module>
-		<module>store</module>
+		<module>ProjetTest</module>
 		<module>Eureka-server2-1</module>
 		<module>Zuul</module>
 		<module>Boomer</module>
 	</modules>
 
+    <developers>
+		<developer>
+			<id>nb</id>
+			<email>nbenaffoune@gmail.com</email>
+			<name>Nourelhouda benaffoune</name>
+		</developer>
+		<developer>
+			<id>zj</id>
+			<email>jawadi.zouhair.2017@gmail.com</email>
+			<name>Zouhair Jawadi</name>
+		</developer>
+		<developer>
+			<id>se</id>
+			<email>soukaynaetalbi@gmail.com</email>
+			<name>Soukayna Etalbi</name>
+		</developer>
+	</developers>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

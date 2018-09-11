@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -8,14 +9,30 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Eureka-server2-1</name>
+	<name>Eureka-server service discovery</name>
 	<description>Demo project for Spring Boot</description>
-
+	<developers>
+		<developer>
+			<id>nb</id>
+			<email>nbenaffoune@gmail.com</email>
+			<name>Nourelhouda benaffoune</name>
+		</developer>
+		<developer>
+			<id>zj</id>
+			<email>jawadi.zouhair.2017@gmail.com</email>
+			<name>Zouhair Jawadi</name>
+		</developer>
+		<developer>
+			<id>se</id>
+			<email>soukaynaetalbi@gmail.com</email>
+			<name>Soukayna Etalbi</name>
+		</developer>
+	</developers>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.0.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath /> 
 	</parent>
 
 	<properties>
@@ -26,7 +43,6 @@
 	</properties>
 
 	<dependencies>
-		<!-- Spring boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -35,12 +51,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-			<!-- Eureka server -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>

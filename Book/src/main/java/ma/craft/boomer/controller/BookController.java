@@ -22,7 +22,7 @@ import ma.craft.boomer.service.BookService;
 
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200" , allowedHeaders="*")
+@CrossOrigin(origins="*" , allowedHeaders="*")
 public class BookController {
 	private static final Logger logger = Logger.getLogger(BookController.class);
 
@@ -37,13 +37,26 @@ public class BookController {
 	 */
 	@RequestMapping(value = "/books", method = RequestMethod.GET)
 	public ResponseEntity<List<Book>> listAllStudents() {
-		List<Book> messages = bookService.findAllBooks();
-		if (messages.isEmpty()) {
-			logger.error("Controller :not enough books");
+		List<Book> books = bookService.findAllBooks();
+		if (books.isEmpty()) {
+			logger.error("Controller : books not found ");
 			return new ResponseEntity<List<Book>>(HttpStatus.NO_CONTENT);
 		}
 		logger.info("Controller : Show all Books");
-		return new ResponseEntity<List<Book>>(messages, HttpStatus.OK);
+		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
+	}
+	/**
+	 * get Book by libelle
+	 */
+	@GetMapping(value="/book/search/{libelle}" )
+	public Book getBookByLibelle(@PathVariable("libelle") String libelle)  throws DataNotFoundException
+	{
+		if(bookService.findBookByLibelle(libelle) == null) {
+			logger.error("Controller :  the book with the libelle   : "+libelle+" not found ");
+			 throw new DataNotFoundException("");
+		}
+		logger.info("Controller : finding a book with the libelle  : "+libelle);
+		return bookService.findBookByLibelle(libelle);
 	}
 	/**
 	 * Get Book
@@ -61,6 +74,8 @@ public class BookController {
 		logger.info("Controller : getting a book");
 		return bookService.findById(id);
 	}
+
+
 	/**
 	 * Add Book.
 	 *
@@ -86,21 +101,9 @@ public class BookController {
 	}
 
 	/**
-	 * get Book by libelle
-	 */
-	public Book getBookByLibelle(String libelle) {
-		
-		if(bookService.findBookByLibelle(libelle) != null) {
-			logger.info("Controller : finding a book with the libelle  : "+libelle);
-			return bookService.findBookByLibelle(libelle);
-		}
-		return null;
-	}
-	/**
 	 * get Book by AUtor
 	 */
 	public Book getBookByAutor(String autor) {
-		
 		if(bookService.findBookByAutor(autor) != null) {
 			logger.info("Controller : finding a book with the autor is : "+autor);
 			return bookService.findBookByAutor(autor);

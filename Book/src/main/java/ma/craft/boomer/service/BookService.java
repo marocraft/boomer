@@ -15,15 +15,6 @@ public interface BookService {
 	public List<Book> findAllBooks();
 
 	/**
-	 * Gets the message.
-	 *
-	 * @param id the id
-	 * @return the message
-	 * @throws DataNotFoundException the data not found exception
-	 */
-	public Book getMessage(int id) throws DataNotFoundException;
-
-	/**
 	 * Adds the book.
 	 *
 	 * @param book the book
@@ -35,8 +26,9 @@ public interface BookService {
 	 *
 	 * @param book the book
 	 * @return true, if is book exist
+	 * @throws DataNotFoundException 
 	 */
-	public boolean isBookExist(Book book);
+	public boolean isBookExist(Book book) throws DataNotFoundException;
 
 	/**
 	 * Find by id.
@@ -53,7 +45,7 @@ public interface BookService {
 	 * @return the book
 	 */
 	public void updateBook(Boolean actif, Long userId);	
-	public Book findBookByLibelle(String libelle);
+	public Book findBookByLibelle(String libelle) throws DataNotFoundException;
 	
 	/**
 	 * Find book by autor.

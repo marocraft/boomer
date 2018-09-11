@@ -22,7 +22,7 @@ public class RestResponseEntityExceptionHandler  extends ResponseEntityException
     @ExceptionHandler(value = { DataNotFoundException.class})
     protected ResponseEntity<Object> handleConflict(
     		DataNotFoundException ex, WebRequest request) {
-        String bodyOfResponse = "id not found";
+        String bodyOfResponse = "The book Not found in the database";
         
         return handleExceptionInternal(ex, bodyOfResponse, 
           new HttpHeaders(), HttpStatus.NOT_FOUND, request);

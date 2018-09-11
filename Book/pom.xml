@@ -10,30 +10,37 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.3.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath /> 
 	</parent>
+	<developers>
+		<developer>
+			<id>nb</id>
+			<email>nbenaffoune@gmail.com</email>
+			<name>Nourelhouda benaffoune</name>
+		</developer>
+		<developer>
+			<id>zj</id>
+			<email>jawadi.zouhair.2017@gmail.com</email>
+			<name>Zouhair Jawadi</name>
+		</developer>
+		<developer>
+			<id>se</id>
+			<email>soukaynaetalbi@gmail.com</email>
+			<name>Soukayna Etalbi</name>
+		</developer>
+	</developers>
 	<properties>
 		<lombok.version>1.16.18</lombok.version>
 		<log4j.version>1.2.17</log4j.version>
+		<eureka.version>2.0.1.RELEASE</eureka.version>
+		<javax.version>2.0-m01</javax.version>
 	</properties>
-	<dependencyManagement>
-		<dependencies>
-			<!-- If you're adding this dependency explicitly you have to add it *BEFORE* 
-				the Release Train BOM -->
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-contract-dependencies</artifactId>
-				<version>2.0.2.BUILD-SNAPSHOT</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-			<version>2.0.1.RELEASE</version>
+			<version>${eureka.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -42,7 +49,7 @@
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
 			<artifactId>javax.ws.rs-api</artifactId>
-			<version>2.0-m01</version>
+			<version>${javax.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -59,11 +66,7 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
-			<scope>test</scope>
-		</dependency>
+		
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -74,7 +77,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 	<repositories>
@@ -87,7 +89,6 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	<!-- Unnecessary if you're using Spring Cloud Stub Runner only -->
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-snapshots</id>
