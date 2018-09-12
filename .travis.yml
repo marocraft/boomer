@@ -7,3 +7,7 @@ cache:
 script: "./build.sh"
 notifications:
   slack: agile-irb-bnp:e9CI9Ro3wL3KjJbRSwwVWy1Z
+  template:
+    - "Repo `%{repository_slug}` *%{result}* build (<%{build_url}|#%{build_number}>) for commit (<%{compare_url}|%{commit}>) on branch `%{branch}`."
+    - "Execution time: *%{duration}*"
+    - "Message: %{message}"  
