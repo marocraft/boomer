@@ -3,6 +3,15 @@ jdk:
 - oraclejdk8
 cache:
   directories:
-  - $HOME/.m2
-script: ./build.sh
-
+  - "$HOME/.m2"
+script: "./build.sh"
+notifications:
+  slack:
+    email: false    # default notification method
+    secure: hVsZX199XcIJ152oHcp0XH+2tkeeA+kp/B9Tyfkyug6BhU/44LYfM8FAvwD5WnzOPzFQwpI3rgB1A6SrRrpHi03ehblC31FE/YKMJLeMxrXgq545cdaekdZDJoOe10ur5qOMMl9Abst5ius4IIaRw5OeEVUqoQck+ov8uHNSqBTD5JhBH2ys963glwQQj0pA80cjNfvwbj+La2G2HzPNJpmKNJ0kCAQnJIIXEjv5y4OIJCxLee2/C7MEfHfTaEVgbLKTXy780NSFowW8NT7g5GxHWAPscfDZ3EK5pz4+kEnGriJAelVZb7dDyILIwf07rgu3VezPsOyCjx1bViwTMcOd7S1puDkO4cuJKTccksWheiCcIvZIHqr54Xd7kpf8ufFcAvqLU5yac6/tZVIn3JCsKGxojKSRXkRKmqeYvJ92+wGsPtMt13YJ8NGVgQvSZHoYfnLShbSjt4HcAKVHQw8p171h1g3ioRGDjPJ45pUSJATio7HkDri3OTQlzmkPf7umRUJx4XDZlDHkPDYgHgtP8Wv+j3kyEvKB4hrXTrrgJthfIbdlKf8LODhV74MJ+6hc+BbyF0Ah9oPNbytAaoRBUPB8zOsgmA8C4OLvlsFkX1SFmgNw61ZPZa41czxuY7Lp9eLgu/3B2AkqW8CCsUpcYmhJyBOZWc42LEooSpg=
+    on_success: always  # change: send a notification when the build status changes.
+    on_failure: always  # always: always send a notification.
+    template:
+      - "Repo `%{repository_slug}` *%{result}* build (<%{build_url}|#%{build_number}>) for commit (<%{compare_url}|%{commit}>) on branch `%{branch}`."
+      - "Execution time: *%{duration}*"
+      - "Message: %{message}"
