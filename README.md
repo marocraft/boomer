@@ -24,10 +24,10 @@ To setup the publishing starter, you've got to do the following:
 If you want to get a lot of information about yours remote exceptions , you  must just add  the annotation "@Boomer" , as the following example :
 
 ```java
-	@Boomer
-	public class Starter {
-	....
-	}
+  @Boomer
+  public class Starter {
+     .... </>
+  }
 ```
 
 As a conclusion, an user will be able  to get more information about your exceptions and  offers the possibility to exception reconstruction at client side.
