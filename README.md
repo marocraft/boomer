@@ -12,11 +12,11 @@ To setup the publishing starter, you've got to do the following:
 ```yaml
 <dependencies>
   <!-- ... -->
-	<dependency>
-		<groupId>ma.craft.boomer</groupId>
-		<artifactId>Boomer</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
-	</dependency>
+    <dependency>
+       <groupId>ma.craft.boomer</groupId>
+       <artifactId>Boomer</artifactId>
+       <version>1.0.2-SNAPSHOT</version>
+    </dependency>
 </dependencies>
 ```
 
