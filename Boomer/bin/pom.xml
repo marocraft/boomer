@@ -1,83 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>romaniancoder</groupId>
-	<artifactId>BookingDemo</artifactId>
+	<groupId>ma.craft.boomer</groupId>
+	<artifactId>boomer-annotation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>BookingDemo</name>
-	<description>Demo project for Spring Boot</description>
-
+	<name>Boomer Annotations</name>
+	<description>Demo project for Spring Boot </description>
+	<developers>
+		<developer>
+			<id>nb</id>
+			<email>nbenaffoune@gmail.com</email>
+			<name>Nourelhouda benaffoune</name>
+		</developer>
+		<developer>
+			<id>zj</id>
+			<email>jawadi.zouhair.2017@gmail.com</email>
+			<name>Zouhair Jawadi</name>
+		</developer>
+		<developer>
+			<id>se</id>
+			<email>soukaynaetalbi@gmail.com</email>
+			<name>Soukayna Etalbi</name>
+		</developer>
+	</developers>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.3.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>ma.marocraft.boomer</groupId>
+		<artifactId>boomer-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jsondoc</groupId>
-			<artifactId>spring-boot-starter-jsondoc</artifactId>
-			<version>1.2.11</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jsondoc</groupId>
-			<artifactId>jsondoc-ui-webjar</artifactId>
-			<version>1.2.11</version>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
 		</dependency>
 	</dependencies>
-	
-	<build>
-	<plugins>
-		<plugin>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-maven-plugin</artifactId>
-		</plugin>
-	</plugins>
-</build>
-	
-
 </project>
