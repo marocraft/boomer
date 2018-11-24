@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Object" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="18bfbb5f-1e69-4c4f-96d9-fc5dcb4b2458">
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="username" class="java.lang.String"/>
+	<parameter name="email" class="java.lang.String"/>
+	<parameter name="id" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="97" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="40" width="100" height="30" uuid="b482f6b5-75e4-485a-8103-bfd74ca9eea9"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Student]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="5" width="123" height="30" uuid="dfaeab30-71f2-40fb-82f3-5d74734a3c67"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="250" y="4" width="100" height="30" uuid="e4c013e7-ab77-4771-9f6e-59c3a59e031e"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="73" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($P{username}==null) ? Boolean.FALSE : Boolean.TRUE]]></printWhenExpression>
+			<staticText>
+				<reportElement x="57" y="22" width="123" height="30" uuid="bdcb31dd-d858-4381-a98b-b1db06140c09"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Username :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="250" y="22" width="270" height="30" uuid="c21aa4d3-a7ef-4bde-a754-9c6cfb074197"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{username}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="127" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($P{address}==null) ? Boolean.FALSE : Boolean.TRUE]]></printWhenExpression>
+			<staticText>
+				<reportElement x="57" y="19" width="123" height="30" uuid="3de2fd6e-0274-4b5b-a985-99a2e6f9ec63"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[address :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="250" y="10" width="270" height="30" uuid="3bb03898-8627-4838-9130-07a320f369b2"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($P{email}==null) ? Boolean.FALSE : Boolean.TRUE]]></printWhenExpression>
+			<staticText>
+				<reportElement x="50" y="0" width="123" height="30" uuid="72964b09-769d-47ec-b464-eda54d83a590"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Mail:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="254" y="10" width="183" height="30" uuid="23336f03-4856-49ba-944d-335d2269f7de"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

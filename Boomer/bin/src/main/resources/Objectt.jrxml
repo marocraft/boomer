@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Objectt" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="147d7e77-88be-4ad5-8e12-735ba83d10d7">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="Student" class="ma.co.omnidata.Printable.model.Student"/>
+	<parameter name="maison" class="ma.co.omnidata.Printable.model.maison"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="30" width="100" height="30" forecolor="#ED4340" uuid="62f97605-d142-450b-9567-0e234f73a617"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Student]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="111" y="19" width="100" height="30" uuid="0566c001-0e51-4fcd-8346-990c1b154474"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Username :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="20" width="180" height="30" uuid="43977c14-141a-4e70-a0a0-af776dc89b54"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Student}.getName()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="110" y="10" width="100" height="30" uuid="df95ee4d-61be-43ee-b667-2f594cb915ea"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Email :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="10" width="180" height="30" uuid="f92a18c9-c6e2-418c-ab9d-3b544ebf7864"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Student}.getEmail()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="500" splitType="Stretch">
+			<staticText>
+				<reportElement x="110" y="0" width="100" height="30" forecolor="#ED4340" uuid="343752da-7103-4795-ad87-29deb51eb897"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="40" width="100" height="30" uuid="bd69d29b-5b3a-40db-baf2-387894610bfc"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[City]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="90" width="100" height="30" uuid="9a9493fa-aa4b-4146-bfd1-710956dbd8b9"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="140" width="100" height="30" uuid="83dfd3c1-313f-468e-81ef-4c55305333d1"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Street]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="190" width="100" height="30" forecolor="#ED4340" uuid="c57202a8-6d96-4122-b715-c192dec62827"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Vehicule]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="230" width="100" height="30" uuid="ae4ca91e-6a43-47db-ac9e-c734b8ac5459"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="270" width="100" height="30" uuid="5513a464-877e-417f-aa78-b13c53d8f8d7"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Qualite]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="302" width="100" height="30" forecolor="#ED4340" uuid="b11a0bd7-f4ec-4dad-8cda-e794dc365154"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Model]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="332" width="100" height="30" uuid="22992540-5f76-459b-bc63-e8fef2b6b14e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="271" y="410" width="289" height="30" uuid="51ad96a1-f97a-4ca1-a0d6-ad517afe753a">
+					<printWhenExpression><![CDATA[new Boolean($P{maison}.getName()==null)    ? Boolean.FALSE : Boolean.TRUE]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{maison}.getName()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="90" width="240" height="30" uuid="d6052021-92a3-4d93-8f0e-fc3489d93975"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Student}.getAd().getCountry()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="140" width="240" height="30" uuid="56a71ddf-173c-45d3-ae15-c2a9fa7c61da"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Student}.getAd().getStreet()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="40" width="240" height="30" uuid="2c188635-62e6-4603-a6e4-b534c27da065"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Student}.getAd().getCity()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="230" width="220" height="30" uuid="13f1cc99-326a-4f40-b394-41d62a917aa2"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Student}.getAd().getVehicule().getName()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="270" width="260" height="30" uuid="3a51f27a-3def-44f1-9646-bafc7f8b53c4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Student}.getAd().getVehicule().getQualite()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="332" width="260" height="30" uuid="8027c4ce-96ca-4ef9-aabe-5d67878ce8c4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Student}.getAd().getVehicule().getModel().getName()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="380" width="100" height="30" forecolor="#ED4340" uuid="b337fe3f-d16d-4d14-a17e-edc4414190d4">
+					<printWhenExpression><![CDATA[new Boolean($P{maison}.getName()==null)    ? Boolean.FALSE : Boolean.TRUE]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Maison]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="410" width="100" height="30" uuid="8fb9a636-d06a-4f6f-aef5-da8c3bb0c33a">
+					<printWhenExpression><![CDATA[new Boolean($P{maison}.getName()==null)    ? Boolean.FALSE : Boolean.TRUE]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Name :]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
