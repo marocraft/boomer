@@ -1,13 +1,10 @@
 package ma.craft.boomer.demo.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import ma.craft.boomer.demo.entities.Book;
 import ma.craft.boomer.demo.entities.InterRepoPromotion;
@@ -21,9 +18,11 @@ public class TraitementMetier {
 	 private InterReposetory interrepobook ;
 	@Autowired
 	private InterRepoPromotion interrepopromotion;
-	
-	//******************************************* Book******************************
-	//get one book by id
+	/**
+	 * get one book by id
+	 * @param id
+	 * @return
+	 */
 	public Book getBookById(Long id) {		
 		return interrepobook.getOne(id);
 	}
@@ -32,7 +31,7 @@ public class TraitementMetier {
 		return interrepobook.findAll() ;
 	}
 	// Add book
-	public void AddBook(String libel, String desc, String autor, int quantite){		
+	public void addBook(String libel, String desc, String autor, int quantite){		
 		interrepobook.save(new Book(libel, autor, desc, quantite));
 	}
 	
@@ -45,7 +44,7 @@ public class TraitementMetier {
 		return interrepopromotion.getOne(id);
 	}
 	//Add promotion
-	public void AddPromotionDate (PromotionB promotion){		
+	public void addPromotionDate (PromotionB promotion){		
 		 interrepopromotion.save(promotion);
 	}
 	//get all promotion valide
@@ -53,7 +52,7 @@ public class TraitementMetier {
 		List<PromotionB> lsvalide = new ArrayList<PromotionB>();
 		List<PromotionB> ls = getAllPromotion();
 		for (PromotionB promotionB : ls) {
-			if(promotionB.GetValide()==true) {
+			if(promotionB.getValide()==true) {
 				lsvalide.add(promotionB);
 			}
 		}
@@ -61,8 +60,7 @@ public class TraitementMetier {
 	}
 
 	//valider promotion
-	public void ValiderUnePromotion(PromotionB prom){
-		//List<PromotionB> lsvalide = new ArrayList<PromotionB>();
+	public void validerUnePromotion(PromotionB prom){
 		List<PromotionB> ls = getAllPromotion();
 		for (PromotionB promotionB : ls) {
 			if(promotionB.getId()==prom.getId()) {
@@ -71,7 +69,7 @@ public class TraitementMetier {
 				promotionB.setValide(true);
 				interrepopromotion.save(promotionB);
 			}
-			if(promotionB.GetValide()==true && promotionB.getId()!=prom.getId()) {				
+			if(promotionB.getValide() == true && promotionB.getId()!=prom.getId()) {				
 				promotionB.setValide(false);	
 				interrepopromotion.save(promotionB);
 			}
@@ -80,8 +78,7 @@ public class TraitementMetier {
 		
 	}
 	// Bloquer toutes les promotions
-	public void BloquerToutespromotion(){
-		//List<PromotionB> lsvalide = new ArrayList<PromotionB>();
+	public void bloquerToutespromotion(){
 		List<PromotionB> ls = getAllPromotion();
 		for (PromotionB promotionB : ls) {
 			promotionB.setValide(false);	
@@ -109,9 +106,10 @@ public class TraitementMetier {
 				}			
 			   }
 			return booksAutor;
-		}else
+		}
+		return ls;
+		
 			
-			return null;
 		}
 		
 	}

@@ -65,8 +65,8 @@ public class BookServiceImp implements BookService {
 	public boolean isBookExist(Book book) throws DataNotFoundException{
 		return repository.findByBookLibelle(book.getBookLibelle()) != null;
 	}
-	public Book findBookByLibelle(String Libelle) throws DataNotFoundException{
-		return repository.findByBookLibelle(Libelle);
+	public Book findBookByLibelle(String libelle) throws DataNotFoundException{
+		return repository.findByBookLibelle(libelle);
 	}
 	
 	public Book findBookByAutor(String autor) {
